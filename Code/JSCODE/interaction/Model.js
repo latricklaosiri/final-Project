@@ -47,6 +47,7 @@ function Model(config){
 	self.draggables = [];
 	self.draggableManager = new DraggableManager(self);
 
+	//CHANGE THIS PART
 	// Candidates & Voter(s)
 	self.candidates = [];
 	self.candidatesById = {};
@@ -67,7 +68,7 @@ function Model(config){
 		self.voters.push(voters);
 		self.draggables.push(voters);
 	};
-
+	//CHANGE THIS PART
 	// Init!
 	self.onInit = function(){}; // TO IMPLEMENT
 	self.init = function(){
@@ -96,7 +97,7 @@ function Model(config){
 			Mouse.dragging.moveTo(Mouse.x, Mouse.y);
 		}
 
-		// DRAW 'EM ALL.
+		// THIS TOO
 		// Draw voters' BG first, then candidates, then voters.
 		for(var i=0; i<self.voters.length; i++){
 			var voter = self.voters[i];
@@ -108,13 +109,14 @@ function Model(config){
 			c.update();
 			c.draw(ctx);
 		}
-
+		//YES
 		// Update!
 		self.onUpdate();
 		publish(self.id+"-update");
 
 	};
-
+	
+	//ALSO THIS
 	// HELPERS:
 	self.getBallots = function(){
 		var ballots = [];
