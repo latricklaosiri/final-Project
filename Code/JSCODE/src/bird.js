@@ -1,10 +1,29 @@
 var self = this
 class birdObject {
-    initialize(self, strategy) {
+    function initialize(self, strategy) {
         self.strategy = strategy
         self.value = 10
     }
-    contest(self, opponent, )
+    function contest(self, opponent) {
+        if (self.strategy == "red" && opponent.strategy == "red") {
+            opponent.value += .75;
+            self.value += .75;
+        }
+
+        if (self.strategy == "blue" && opponent.strategy == "blue") {
+            opponent.value += 1;
+            self.value += 1;
+        }
+
+        if (self.strategy == "blue" && opponent.strategy == "red") {
+            opponent.value += 1.75
+            self.value += .25
+        } 
+
+    }
+    function create (self) {
+        
+    }
     update() {}
     eat() {}
     findNest() {}
