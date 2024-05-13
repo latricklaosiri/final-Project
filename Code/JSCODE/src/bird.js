@@ -15,7 +15,7 @@ class birdObject {
             self.value += 1;
         }
 
-        if (self.strategy == "blue" && opponent.strategy == "red") {
+        if (self.strategy == "red" && opponent.strategy == "red") {
             opponent.value += 1.75
             self.value += .25
         } 
