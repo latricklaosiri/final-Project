@@ -6,20 +6,22 @@
 	<link rel="stylesheet" type="text/css" href="css/model.css">
 	<link rel="stylesheet" type="text/css" href="css/ballot.css">
 </head>
-<body></body>
+<body>
+  <script src="testFiles/pixi.min.js"></script>
+
+
+  <script>
+    window.onload = function() {
+      const app = new PIXI.Application({ 
+    width: 256,         // default: 800
+    height: 256,        // default: 600
+    antialias: true,    // default: false
+    transparent: false, // default: false
+    resolution: 1       // default: 1
+  }
+);
+  </script>
+</body>
 </html>
 
-<script src="testFiles/pixi.min.js"></script>
 
-
-<script>
-	window.onload = function() {
-		app = new PIXI.application(
-			{
-				width : 800,
-				length : 600,
-				backgroundColor: 0xAAAAAA
-			}
-		);
-	}
-</script>
