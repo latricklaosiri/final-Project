@@ -1,26 +1,34 @@
-// <block:data:2>
-const data = [];
-const data2 = [];
-let prev = 100;
-let prev2 = 80;
-for (let i = 0; i < 1000; i++) {
-  prev += 5 - Math.random() * 10;
-  data.push({x: i, y: prev});
-  prev2 += 5 - Math.random() * 10;
-  data2.push({x: i, y: prev2});
-}
-// </block:data>
+var ctx = document.getElementById('myChart')?.getContext('2d');
 
-// <block:animation:1>
-const totalDuration = 10000;
+var data = [
+  {
+    x: '01.12.2019',
+    y: 19
+  },
+  {
+    x: '19.03.2020',
+    y: 29
+  },
+  {
+    x: '01.08.2021',
+    y: 51
+  },
+  {
+    x: '11.01.2022',
+    y: 56
+  }
+];
+
+const totalDuration = 2000;
 const delayBetweenPoints = totalDuration / data.length;
 const previousY = (ctx) => ctx.index === 0 ? ctx.chart.scales.y.getPixelForValue(100) : ctx.chart.getDatasetMeta(ctx.datasetIndex).data[ctx.index - 1].getProps(['y'], true).y;
-const animation = {
+
+var animation = {
   x: {
     type: 'number',
     easing: 'linear',
     duration: delayBetweenPoints,
-    from: NaN, // the point is initially skipped
+    from: NaN,
     delay(ctx) {
       if (ctx.type !== 'data' || ctx.xStarted) {
         return 0;
@@ -42,29 +50,28 @@ const animation = {
       return ctx.index * delayBetweenPoints;
     }
   }
-};
-// </block:animation>
+}
 
-// <block:config:0>
-const config = {
+config = {
   type: 'line',
   data: {
-    datasets: [{
-      borderColor: Utils.CHART_COLORS.red,
-      borderWidth: 1,
-      radius: 0,
-      data: data,
-    },
-    {
-      borderColor: Utils.CHART_COLORS.blue,
-      borderWidth: 1,
-      radius: 0,
-      data: data2,
-    }]
+    //labels: labels,
+    datasets: [
+      {
+        label: 'Price History',
+        data: data,
+        fill: false,
+        borderColor: '#FF00FF',
+        cubicInterpolationMode: 'monotone',
+        tension: 0.5,
+      },
+    ],
   },
   options: {
-    animation,
+    animation: animation,
     interaction: {
+      mode: 'nearest',
+      axis: 'x',
       intersect: false
     },
     plugins: {
@@ -72,13 +79,14 @@ const config = {
     },
     scales: {
       x: {
-        type: 'linear'
-      }
+        type: 'time',
+        time: {
+          unit: 'day',
+          parser: 'dd.mm.yyyy'
+        },
+      },
     }
-  }
+  },
 };
-// </block:config>
 
-module.exports = {
-  config
-};
+const chart = new Chart(ctx, config);
