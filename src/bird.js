@@ -1,11 +1,10 @@
-const { Console } = require("console");
-
-class BirdObject {
+export class Bird {
     constructor(strategy) {
         this.strategy = strategy;
-        this.value = 5;
+        this.value = 0;
     }
     match(opponent) {
+        this.value = 0;
         if (self.strategy == "red" && opponent.strategy == "red") {
             opponent.value += .75;
             self.value += .75;

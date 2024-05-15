@@ -1,12 +1,10 @@
-var br = require('./bird.js');
-console.log(br)
-
-const brd = new br.BirdObject('Blue');
+import { Bird } from './src/bird.js';
+var brd = new Bird('Blue');
 
 function setup(amount) {
     const birds = []
-    for (i = 0; i < amount; i++) {
-        birds.push(new BirdObject("blue"));
+    for (var i = 0; i < amount; i++) {
+        birds.push(new Bird("blue"));
     }
     return birds;
 }
@@ -24,6 +22,16 @@ function match(birds) {
 
     shuffle(birds)
 
+    for (let i = 0; i < birds.length; i++) {
+        // pair up random birds to contest
+        const [a, b] = sampleSize(birds, 2);
+        a.contest(b, value, cost);
+    }
+
+    // generate next generation
+    const draw = sampleSize(birds, 1000, { weights: fitnesses });
+    return draw.map(bird => bird.spawn());
+    
   }; 
 
 function main() {
@@ -31,6 +39,7 @@ function main() {
     birds = shuffle(birds);
     console.log(birds.length);
     console.log(birds);
+    birds = shuffle()
 }
 
 main();
