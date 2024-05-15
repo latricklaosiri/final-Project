@@ -34,7 +34,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 		yValueFormatString: "$####.00",
 		xValueFormatString: "hh:mm:ss TT",
 		showInLegend: true,
-		name: "Company A",
+		name: "Blue Birds",
 		dataPoints: dataPoints1
 		},
 		{				
@@ -42,7 +42,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 		xValueType: "dateTime",
 		yValueFormatString: "$####.00",
 		showInLegend: true,
-		name: "Company B" ,
+		name: "Red Birds" ,
 		dataPoints: dataPoints2
 	}]
 });
@@ -57,7 +57,7 @@ function toggleDataSeries(e) {
 	chart.render();
 }
 
-var updateInterval = 3000;
+var updateInterval = 1000;
 // initial value
 var yValue1 = 600; 
 var yValue2 = 605;
@@ -69,8 +69,10 @@ time.setMinutes(30);
 time.setSeconds(0o0);
 time.setMilliseconds(0o0);
 
+
 function updateChart(count) {
 	count = count || 1;
+	dataLength = 5;
 	var deltaY1, deltaY2;
 	for (var i = 0; i < count; i++) {
 		time.setTime(time.getTime()+ updateInterval);
@@ -92,13 +94,18 @@ function updateChart(count) {
 	});
 	}
 
+	if (dataPoints1.length > dataLength) {
+		dataPoints1.shift();
+		dataPoints2.shift();
+	}
+	console.log (dataPoints1);
 	// updating legend text with  updated with y Value 
-	chart.options.data[0].legendText = " Company A  $" + yValue1;
-	chart.options.data[1].legendText = " Company B  $" + yValue2; 
+	chart.options.data[0].legendText = " Blue Bird  Count " + yValue1;
+	chart.options.data[1].legendText = " Red Bird Count  " + yValue2; 
 	chart.render();
 }
 // generates first set of dataPoints 
-updateChart(100);	
+updateChart(0);	
 setInterval(function(){updateChart()}, updateInterval);
 
 }

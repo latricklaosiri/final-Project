@@ -1,10 +1,11 @@
-var self = this
-class birdObject {
-    function initialize(self, strategy) {
-        self.strategy = strategy
-        self.value = 10
+const { Console } = require("console");
+
+class BirdObject {
+    constructor(strategy) {
+        this.strategy = strategy;
+        this.value = 5;
     }
-    function contest(self, opponent) {
+    match(opponent) {
         if (self.strategy == "red" && opponent.strategy == "red") {
             opponent.value += .75;
             self.value += .75;
@@ -19,14 +20,9 @@ class birdObject {
             opponent.value += 1.75
             self.value += .25
         } 
+    }
+    toString() {
+        return "Bird " + this.strategy;
+    }
 
-    }
-    function create (self) {
-        
-    }
-    update() {}
-    eat() {}
-    findNest() {}
-    reset() {}
-    clone() {}
 }
