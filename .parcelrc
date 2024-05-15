@@ -1,0 +1,6 @@
+{
+  "extends": "@parcel/config-default",
+  "transformers": {
+    "*.html": ["parcel-transformer-djot", "@parcel/transformer-html", "@parcel/transformer-posthtml"]
+  }
+}

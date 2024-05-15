@@ -3,7 +3,7 @@
 <head>
   <title>A playable exploration about the value of cooperation</title>
   <meta name="description" content="A playable post about cooperation." />
-  <link rel="icon" type="image/png" href="images/player.png">
+  <link rel="icon" type="image/png" href="Code/images/player.png">
 
   <link href="Code/CSS/index.css" rel="stylesheet" type="text/css">
 
@@ -21,10 +21,10 @@
     }
 
     iframe {
-      border:none;
-	display: block;
-	margin: 0px auto 25px auto;
-  }
+      border: none;
+      display: block;
+      margin: 0px auto 25px auto;
+    }
   </style>
 </head>
 
@@ -34,9 +34,134 @@
   </div>
   <iframe src="Code/JSCODE/program2.html" scrolling="no"></iframe>
   <iframe src="Code/JSCODE/program3.html" scrolling="no"></iframe>
-  <iframe src="Code/JSCODE/program4.html"  width="500" height="420" scrolling="no"></iframe>
-  <iframe src="Code/JSCODE/program5.html"  width="500" height="420" scrolling="no"></iframe>
-  <iframe src="Code/JSCODE/program6.html"  width="500" height="420" scrolling="no"></iframe>
+  <iframe src="Code/JSCODE/program4.html" width="500" height="420" scrolling="no"></iframe>
+  <iframe src="Code/JSCODE/program6.html" width="500" height="420" scrolling="no"></iframe>
+
+  <djot>
+    # The Strangest Belief
+
+    ## Chapter One
+
+    From the day we are born to the day we die, we are competition bound. A high test score only has meaning when the
+    test itself is hard, with others earning lower scores. Likewise, winning a game of baseball only has meaning when
+    the other team loses. To put it simply, the losses of others are accepted as long as we aren't the ones who lose.
+
+    So shouldn't the selfish thrive? Well, not necessary. We live in a society where cooperation
+    is also rewarded, and by extension, altruism. Now, the answer of _why_ is
+    pretty obvious, as we are a brainy species. Namely, our ability to communicate and trade information is why we can
+    avoid constant conflict. But with all things created, cooperation had to start _somewhere_. Perhaps we can find out
+    with the _purple
+    pigeons_
+
+    Now let me be clear here. Humans and animals aren't the same. But animals sure do tell a lot about humans. As stated
+    before, humans are quite brainy, and by extension, are quite complicated too. There are multiple safeguards in our
+    society to prevent against the grubber, and beyond that, we feel complex emotions : We feel anger, gratitude,
+    sympathy, guilt, and shame. The average pigeon on the other hand feels none of these things : It'll quite literally
+    do anything, without shame, to eat and live. Thus, we can view cooperation at its most primal. Through the eyes of
+    the average birdbrain, maybe we find out more about our brains.
+
+    ### Game 1 - Meet the pigeon (Start, seeds, bird reproduces every time it eats two seeds for each cycle)
+
+    Alright, so things seem pretty basic right now - The pigeon sees some seed, so it indulges in it, and the other
+    pigeons replicate this behavior. Soon enough, we can see the population grow, as the pigeons eat. Now, let's add a
+    requirement - Cooperation.
+
+    ### Game 2
+
+    As we can see now, two pigeons each have to go to a tree, and work together to shake the tree in order to get the
+    food. After, each blue pigeon shares the seed each tree drops.
+    Okay, things are still shaping up. Pigeons who work together get to thrive. Everybody is thriving, so there's no
+    reason for selfishness, right?
+
+    ### Game 3 - Evil pigeon takes all food, dominates population.
+
+    Oops, looks like the evil red pigeons won. Instead of sharing the seeds, the red pigeons exploit the blue pigeons.
+    Sure, when the red pigeons go up against each other, they don't do too well, but other than that, they usually
+    dominate their blue counterparts. Now, let's see this simulation replicated over different blue to red pigeon ratios
+
+    ### Model 1 - Various tests
+
+    It's clear that the majority group is usually the one who thrives in the end, so why does this happen? You would
+    think that with more blue pigeons to take advantage of, the red pigeons would do better, but alas, this doesn't seem
+    to be true. To put it simply, the blue pigeons are able to thrive more when there are more blue pigeons to work
+    together with. On the other hand, red pigeons thrive when there are other red pigeons, _but only_ because these red
+    pigeons take advantage of the blue pigeons when there are blue pigeons, eliminating cooperation altogether.
+
+    Furthermore, because these red pigeons always come away with the least amount of seed when they encounter each
+    other, they barely thrive.
+    The biggest flaw of the pigeons is that they don't recognize when they're playing a losing game. They always stick
+    to their same actions, even if they are constantly being taken advantage of, or rather, if the strategy offers no
+    substantial return. This is basically what *Evolutionary Game Theory* is - The actions these pigeons will take have
+    been decided by the way the pigeon is built. The pigeon makes no conscious decision to decide what to do, but
+    rather, it does so because it _has_ to. If we were to apply this to a *Game Theory* context, these pigeons will be
+    able to decide what to do, rather than just simply _doing_.
+
+    ## Chapter Two
+
+    Grudges - Purple pigeon acts like the blue pigeon normally, but will remember pigeons who betray them.
+
+    Here's the purple pigeon. Unlike the blue or red pigeon, it pulls off a strategy in which it acts like a blue
+    pigeon, but once a pigeon betrays it, this pigeon will retaliate with a red-pigeon strategy.
+
+    Game 3 - With some grudge pigeons.
+    By working with the blue pigeons and avoiding the red pigeons, we can see that Purple pigeons does quite well. Now,
+    let's see its behavior with multiple situations.
+
+    Model 2 - + Grudge Pigeon
+
+    Unsurprisingly, the purple pigeon does quite well here too! Even when there's no blue pigeons to work with, the
+    purple pigeons are still able to survive. This strategy the purple pigeon plays is called *Tit for Tat (TFT)*. This
+    behavior has been seen to thrive in both practical and experimental settings, the most famous of which is
+    demonstrated in Hamilton's _*Evolution of Cooperation*_. The study follows many of the same features our game
+    features so far, just with one big difference - game theorists would actively submit strategies in order to be the
+    dominant one. But even with _real humans_ trying to find the optimal strategy, TFT would emerge dominant. Even
+    strategies that would actively try to take advantage of TFT would do worse. We can see this demonstrated through the
+    _Yellow Pigeon_, which tries to maximize its score by taking TFT into account.
+
+    Model 3 - + Yellow Pigeon
+
+    ```=html
+    <iframe src="Code/JSCODE/program5.html" width="500" height="420" scrolling="no"></iframe>
+    ```
+
+    And yet, TFT still does better. Wikipedia summarizes _why_ pretty well -
+
+    > Most of the games that game theory had heretofore investigated are "zero-sum" - that is, the total rewards are
+    fixed, and a player does well only at the expense of other players. But real life is not zero-sum. Our best
+    prospects are usually in cooperative efforts. In fact, TFT cannot score higher than its partner; at best it can only
+    do "as good as". Yet it won the tournaments by consistently scoring a strong second-place with a variety of
+    partners.[9] Axelrod summarizes this as don't be envious;[10] in other words, don't strive for a payoff greater than
+    the other player's."
+    The bottom line? Don't be too smart, and play to maximize your own score instead of making your score higher than
+    the others.
+
+    ## Chapter Three - Making the simulation more realistic
+
+    Now obviously, as stated earlier, this simulation has a few problems. Beyond the constraints of the fact that it's a
+    simulation, and not at all a real experiment, real life has far more factors than what can be reasonably replicated
+    in this experiment, specifically humans. Unlike birds, the way humans work is much more sensitive and dynamic. With
+    animals, reciprocal altruism is based on _*Kin Selection*_ - A process in which natural selection favors traits
+    based on how well they benefit the population and relatives that possess these traits. Thus, altruism operates
+    directly under the principle of further survival. With humans however, while kin selection does seem quite the
+    appealing explanation, and while families _do_ play a large role in human behavior, we operate _much_ more on our
+    own psychologies, in addition to social structures and norms. Take a few of these factors for example:
+
+    - Friendships and Enemies - We like and dislike certain people, and we treat these people differently based on this
+    - Morality - Both the moral impulse to punish the cheaters and committing actions that interfere with our moral
+    impulses are equally important.
+    - Guilt - Cheaters don't just take the rewards into account - They also experience guilt as well, which might
+    prevent further cheating.
+    - Social influence - A cheater who cheats might cause the cheated to collaborate with others to stop working with
+    the cheater.
+
+    Yet, we live in a world where the need for trust becomes more important every day. As stated in the beginning of all
+    this, we live in an increasingly competitive world. Even with the increased technologies and opportunities to
+    interact with each other, we trust each other less. But even with more trust, to trust all the time is apathy. As
+    much as we need trust, we also live in a world where people are increasingly able to win at the expense of others.
+    That is, after all, a product of the environment. If anything, TFT teaches us that we have the agency to deal with
+    the game of trust. By building relationships, while being diligent, perhaps we can leave the endless cycle of
+    competition to the birds.
+  </djot>
 
 </body>
 
