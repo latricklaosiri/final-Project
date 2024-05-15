@@ -1,6 +1,5 @@
 import { Transformer } from '@parcel/plugin';
 import { parse, renderHTML } from '@djot/djot'
-import { readFileSync } from "fs"
 
 export default new Transformer({
   async transform({asset}) {
