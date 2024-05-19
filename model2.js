@@ -288,7 +288,7 @@ window.onload = function () {
 
 
     let birds = [];
-    birds = setup(10, 10, 0, 0);
+    birds = setup(10, 0, 0, 0);
 
 
     function updateChart(count) {
@@ -340,8 +340,7 @@ window.onload = function () {
         }
        
         // updating legend text with  updated with y Value
-        chart.options.data[0].legendText = " Blue Bird Count " + blues;
-        chart.options.data[1].legendText = " Red Bird Count  " + reds;
+        chart.options.data[1].legendText = " Blue Bird Count  " + reds;
         chart.render();
         /*
         count = count || 1;
